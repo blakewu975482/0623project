@@ -1,2 +1,4 @@
 projectsssssss again
 使用pull = fetch
+
+再來用本機進行push = sync
