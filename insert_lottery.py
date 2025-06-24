@@ -6,18 +6,19 @@ cnx=mysql.connector.connect(
     port= 3306,
     user="ru",
     password="1234",
-    database="world"
+    database="prize"
 )
 
 print("透過連線取得cursor物件")
 dbcursor=cnx.cursor()
-print("執行 select name from city")
-print("記得開權限")
+print("執行 insert")
+insertSQL="insert into lottery(n1,n2,n3,n4,n5,n6) values(%s,%s,%s,%s,%s,%s)"
 
-dbcursor.execute("select name from city")
-for cityname in dbcursor:
-    print(cityname)
+parserdata=(4,18,21,23,37,42)
 
+dbcursor.execute(insertSQL,parserdata)
+print("完成交易 確定要寫入資料庫")
+cnx.commit()
 
 dbcursor.close()
 cnx.close()
